@@ -120,7 +120,20 @@ bid_cur	.equ	-1	; used below to indicate current bank
 ;
 start:
 	ld	sp,bl_stack		; setup private stack
+	
+	;DEBUG TOM80
+	;PUSH    AF
+    ;LD      A,'5'
+    ;CALL    COUT
+    ;POP     AF
+	
 	call	delay_init		; init delay functions
+	
+	;DEBUG TOM80
+	;PUSH    AF
+    ;LD      A,'6'
+    ;CALL    COUT
+    ;POP     AF
 ;
 ; Disable interrupts if IM1 is active because we are switching to page
 ; zero in user bank and it has not been prepared with IM1 vector yet.
@@ -134,12 +147,26 @@ start:
 #if (BIOS == BIOS_WBW)
 	ld	b,BF_SYSSETBNK		; HBIOS func: set bank
 	ld	c,BID_USR		; select user bank
+	
+	;DEBUG TOM80
+	;PUSH    AF
+    ;LD      A,'7'
+    ;CALL    COUT
+    ;POP     AF
+	
 	rst	08			; do it
 	ld	a,c			; previous bank to A
 	ld	(bid_ldr),a		; save previous bank for later
 	bit	7,a			; starting from ROM?
 #endif
 ;
+
+;DEBUG TOM80
+	;PUSH    AF
+    ;LD      A,'8'
+    ;CALL    COUT
+    ;POP     AF
+
 #if (BIOS == BIOS_UNA)
 	ld	bc,$01FB		; UNA func: set bank
 	ld	de,BID_USR		; select user bank

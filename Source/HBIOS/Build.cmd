@@ -222,5 +222,6 @@ call Build EZZ80 tz80 || exit /b
 call Build DYNO std || exit /b
 call Build UNA std || exit /b
 call Build RPH std || exit /b
+call Build Tom80 std || exit /b
 
 goto :eof

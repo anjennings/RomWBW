@@ -1,0 +1,3 @@
+set ROMSIZE=512
+set CPUFAM=2
+

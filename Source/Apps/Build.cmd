@@ -15,8 +15,8 @@ call :asm assign || exit /b
 call :asm format || exit /b
 call :asm talk || exit /b
 call :asm mode || exit /b
-call :asm rtc || exit /b
-call :asm timer || exit /b
+::call :asm rtc || exit /b
+::call :asm timer || exit /b
 call :asm rtchb || exit /b
 
 zxcc Z80ASM -SYSGEN/F || exit /b
